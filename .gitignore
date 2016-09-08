@@ -159,6 +159,8 @@ ClientBin/
 *.pfx
 *.publishsettings
 node_modules/
+*.o
+tetgen
 
 # RIA/Silverlight projects
 Generated_Code/
