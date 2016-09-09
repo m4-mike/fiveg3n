@@ -33,8 +33,6 @@ namespace WindowsFormsApplication1
 
             openFileDialog1.Multiselect = true;
             openFileDialog1.ShowDialog();
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,11 +60,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void panel3_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void tabPage1_Click_1(object sender, EventArgs e)
         {
 
@@ -75,6 +68,11 @@ namespace WindowsFormsApplication1
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
