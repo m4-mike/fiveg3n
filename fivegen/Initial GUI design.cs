@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void panel3_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

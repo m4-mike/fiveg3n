@@ -21,6 +21,9 @@ using System.Windows.Forms;
 namespace fivegen
 {
     // EXAMPLE CODE TO SEE IF IT WORKS
+    /* 
+        Code snippets taken and modified from https://github.com/sharpdx/SharpDX-Samples/tree/master/Desktop/Direct3D11/MiniTri
+     */
     public partial class RenderPanel : Panel
     {
         private DeviceContext context;
@@ -78,7 +81,7 @@ namespace fivegen
                         new InputElement("COLOR", 0, Format.R32G32B32A32_Float, 16, 0)
                     });
 
-            // Instantiate Vertex buiffer from vertex data
+            // Instantiate Vertex bufffer from vertex data
             vertices = Buffer.Create(device, BindFlags.VertexBuffer, new[]
                  {
                     new Vector4(-0.5f, 0.5f, 1f, 1.0f), new Vector4(1.0f, 0.0f, 0.0f, 1.0f),
