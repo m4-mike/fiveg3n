@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }

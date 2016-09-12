@@ -29,7 +29,6 @@ namespace fivegen
         private DeviceContext context;
         private SwapChain swapChain;
         private RenderTargetView renderView;
-
         private CompilationResult vertexShaderByteCode;
         private VertexShader vertexShader;
         private CompilationResult pixelShaderByteCode;
@@ -38,7 +37,6 @@ namespace fivegen
         private InputLayout layout;
         private Device device;
         private Texture2D backBuffer;
-        private Factory factory;
 
         private const int SCALING_FACTOR = 5;
 
@@ -57,20 +55,15 @@ namespace fivegen
                 SwapEffect = SwapEffect.Discard,
                 Usage = Usage.RenderTargetOutput
             };
+
             Device.CreateWithSwapChain(DriverType.Hardware, DeviceCreationFlags.None, desc, out device, out swapChain);
             context = device.ImmediateContext;
-
-            factory = swapChain.GetParent<Factory>();
-            factory.MakeWindowAssociation(this.Handle, WindowAssociationFlags.IgnoreAll);
 
             backBuffer = Texture2D.FromSwapChain<Texture2D>(swapChain, 0);
             renderView = new RenderTargetView(device, backBuffer);
 
-            vertexShaderByteCode = ShaderBytecode.CompileFromFile("../../MiniTri.fx", "VS", "vs_4_0", ShaderFlags.None, EffectFlags.None);
-            vertexShader = new VertexShader(device, vertexShaderByteCode);
-
-            pixelShaderByteCode = ShaderBytecode.CompileFromFile("../../MiniTri.fx", "PS", "ps_4_0", ShaderFlags.None, EffectFlags.None);
-            pixelShader = new PixelShader(device, pixelShaderByteCode);
+            initShaders();
+            initVertices();
 
             layout = new InputLayout(
                 device,
@@ -81,6 +74,25 @@ namespace fivegen
                         new InputElement("COLOR", 0, Format.R32G32B32A32_Float, 16, 0)
                     });
 
+            context.InputAssembler.InputLayout = layout;
+            context.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(vertices, 32, 0));
+            context.Rasterizer.SetViewport(new Viewport(0, 0, this.ClientSize.Width * SCALING_FACTOR, this.ClientSize.Height * SCALING_FACTOR, 0.0f, 1.0f));
+            context.OutputMerger.SetTargets(renderView);
+        }
+
+        void initShaders()
+        {
+            vertexShaderByteCode = ShaderBytecode.CompileFromFile("../../shaders/vertexShader.hlsl", "main", "vs_4_0", ShaderFlags.Debug);
+            vertexShader = new VertexShader(device, vertexShaderByteCode);
+            pixelShaderByteCode = ShaderBytecode.CompileFromFile("../../shaders/pixelShader.hlsl", "main", "ps_4_0", ShaderFlags.Debug);
+            pixelShader = new PixelShader(device, pixelShaderByteCode);
+            context.PixelShader.Set(pixelShader);
+            context.VertexShader.Set(vertexShader);
+            context.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
+        }
+
+        void initVertices()
+        {
             // Instantiate Vertex bufffer from vertex data
             vertices = Buffer.Create(device, BindFlags.VertexBuffer, new[]
                  {
@@ -92,15 +104,6 @@ namespace fivegen
                     new Vector4(0.5f, -0.5f, 1f, 1.0f), new Vector4(1.0f, 0.0f, 1.0f, 1.0f),
                     new Vector4(-0.5f, -0.5f, 1f, 1.0f), new Vector4(0.0f, 0.0f, 1.0f, 1.0f)
                  });
-
-            // Prepare All the stages
-            context.InputAssembler.InputLayout = layout;
-            context.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
-            context.InputAssembler.SetVertexBuffers(0, new VertexBufferBinding(vertices, 32, 0));
-            context.VertexShader.Set(vertexShader);
-            context.Rasterizer.SetViewport(new Viewport(0, 0, this.ClientSize.Width * SCALING_FACTOR, this.ClientSize.Height * SCALING_FACTOR, 0.0f, 1.0f));
-            context.PixelShader.Set(pixelShader);
-            context.OutputMerger.SetTargets(renderView);
         }
 
         ~RenderPanel()
@@ -119,7 +122,6 @@ namespace fivegen
             device.Dispose();
             context.Dispose();
             swapChain.Dispose();
-            factory.Dispose();
         }
 
         protected override void OnPaint(PaintEventArgs pe)
