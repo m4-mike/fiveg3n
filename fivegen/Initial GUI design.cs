@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        Thread renderThread;
         public Form1()
         {
             InitializeComponent();
@@ -19,9 +21,16 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            renderThread = new Thread(new ThreadStart(() => {
+                while (true)
+                {
+                    renderPanel2.Draw();
+                    renderPanel2.Present();
+                }
+            }));
+            renderThread.Start();
+            while (!renderThread.IsAlive) ;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             // Create an instance of the open file dialog box.
@@ -73,6 +82,11 @@ namespace WindowsFormsApplication1
         private void exitToolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            renderThread.Abort();
         }
     }
 }
