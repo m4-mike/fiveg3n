@@ -87,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -103,6 +104,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ZoomOut_17x.png" />
+    <None Include="Resources\ZoomOut_16x.png" />
+    <None Include="Resources\Undo_grey.ico" />
+    <None Include="Resources\Redo_grey_16x.png" />
+    <None Include="Resources\Undo_grey1.ico" />
     <Content Include="shaders\pixelShader.hlsl" />
     <Content Include="shaders\vertexShader.hlsl" />
   </ItemGroup>

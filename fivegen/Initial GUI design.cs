@@ -21,6 +21,30 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(this.checkBox1, "Tetrahedralizes a picecwise linear complex.");
+            toolTip1.SetToolTip(this.checkBox2, "Quality mesh generation. A minimum radius-edge ratio may be specifyed.");
+            toolTip1.SetToolTip(this.checkBox3, "Applies a maximum tetrahedron volume constraint.");
+            toolTip1.SetToolTip(this.checkBox4, "Assigns attributes to identify tetrahedra in certain regions.");
+            toolTip1.SetToolTip(this.checkBox5, "Reconstructs/Refines a previously generated mesh.");
+            toolTip1.SetToolTip(this.checkBox6, "Suppresses boundary facets/segments splitting.");
+            toolTip1.SetToolTip(this.checkBox7, "Inserts a list of additional points into mesh.");
+            toolTip1.SetToolTip(this.checkBox8, "Does not merge coplanar facets.");
+            toolTip1.SetToolTip(this.checkBox9, "Set a tolerance for coplanar test.");
+            toolTip1.SetToolTip(this.checkBox10, "Detect intersections of PLC facets.");
+            toolTip1.SetToolTip(this.checkBox11, "Numbers all output items starting from zero.");
+            toolTip1.SetToolTip(this.checkBox12, "Jettison unused vertices from output .node file.");
+            toolTip1.SetToolTip(this.checkBox13, "Generates second-order subparametric elements.");
+
             renderThread = new Thread(new ThreadStart(() => {
                 while (true)
                 {
@@ -31,6 +55,7 @@ namespace WindowsFormsApplication1
             renderThread.Start();
             while (!renderThread.IsAlive) ;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             openDialog();
@@ -38,7 +63,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            saveDialog();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -75,10 +100,12 @@ namespace WindowsFormsApplication1
         {
 
         }
+
         private void openToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             openDialog();
         }
+
         private void openDialog()
         {
             // Create an instance of the open file dialog box.
@@ -88,9 +115,20 @@ namespace WindowsFormsApplication1
             openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
 
-            openFileDialog1.Multiselect = true;
+            openFileDialog1.Multiselect = false;
             openFileDialog1.ShowDialog();
 
+        }
+
+        private void saveDialog()
+        {
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.ShowDialog();
 
         }
 
@@ -103,6 +141,73 @@ namespace WindowsFormsApplication1
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             renderThread.Abort();
+        }
+
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to exit?",
+                      "Exit?", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes: Application.Exit(); break;
+                case DialogResult.No: break;
+            }
+            
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            saveDialog();
+        }
+
+        private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                textBox1.Visible = true;
+            }else
+            {
+                textBox1.Visible = false;
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                textBox2.Visible = true;
+            }
+            else
+            {
+                textBox2.Visible = false;
+            }
+        }
+
+        private void checkBox9_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox9.Checked)
+            {
+                textBox3.Visible = true;
+            }
+            else
+            {
+                textBox3.Visible = false;
+            }
         }
     }
 }
