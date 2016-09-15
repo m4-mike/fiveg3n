@@ -180,7 +180,8 @@ namespace WindowsFormsApplication1
             if (checkBox2.Checked)
             {
                 textBox1.Visible = true;
-            }else
+            }
+            else
             {
                 textBox1.Visible = false;
             }
