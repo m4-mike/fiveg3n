@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        Thread renderThread;
         public Form1()
         {
             InitializeComponent();
@@ -19,9 +21,16 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            renderThread = new Thread(new ThreadStart(() => {
+                while (true)
+                {
+                    renderPanel1.Draw();
+                    renderPanel1.Present();
+                }
+            }));
+            renderThread.Start();
+            while (!renderThread.IsAlive) ;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             openDialog();
@@ -89,6 +98,11 @@ namespace WindowsFormsApplication1
         {
             MessageBox.Show("TetGen is a powerful command-line tool with many options for generating tetrahedral lattices. These lattices are used for many applications from mechanical engineering, biomedical research, fluid simulations, to computer games and interactive VR simulations. Their exact structure is very important for different applications, and TetGen is one of very few open-source tools available that have these features. http://wiasberlin.de/software/tetgen/ \n \nThis project will develop a graphical user interface that simplifies the use of this tool(using presets and thumbnails etc) to open up the tool to a far bigger audience.It will include 3D computer graphics to visualize the generated 3D meshes (both triangle-shell meshes, and tetrahedral lattices).",
             "About");
+        }
+
+        private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            renderThread.Abort();
         }
     }
 }
