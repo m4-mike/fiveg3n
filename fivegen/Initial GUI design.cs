@@ -112,7 +112,7 @@ namespace WindowsFormsApplication1
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             // Set filter options and filter index.
-            openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            openFileDialog1.Filter = "STereoLithography Files (.stl)|*.stl|All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
 
             openFileDialog1.Multiselect = false;
