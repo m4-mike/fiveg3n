@@ -21,10 +21,11 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            tableLayoutPanel1.ColumnCount = 1;
             ToolTip toolTip1 = new ToolTip();
 
             // Set up the delays for the ToolTip.
-            toolTip1.AutoPopDelay = 5000;
+            toolTip1.AutoPopDelay = 10000;
             toolTip1.InitialDelay = 1000;
             toolTip1.ReshowDelay = 500;
             // Force the ToolTip text to be displayed whether or not the form is active.
@@ -50,6 +51,8 @@ namespace WindowsFormsApplication1
                 {
                     renderPanel1.Draw();
                     renderPanel1.Present();
+                    renderPanel2.Draw();
+                    renderPanel2.Present();
                 }
             }));
             renderThread.Start();
@@ -208,6 +211,18 @@ namespace WindowsFormsApplication1
             else
             {
                 textBox3.Visible = false;
+            }
+        }
+
+        private void checkBox14_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox14.Checked)
+            {
+                tableLayoutPanel1.ColumnCount = 2;
+            }
+            else
+            {
+                tableLayoutPanel1.ColumnCount = 1;
             }
         }
     }

@@ -81,14 +81,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.renderPanel1 = new fivegen.RenderPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.renderPanel2 = new fivegen.RenderPanel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.renderPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -370,6 +373,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.DarkRed;
+            this.tabPage1.Controls.Add(this.checkBox14);
             this.tabPage1.Location = new System.Drawing.Point(23, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -622,33 +626,54 @@
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "TetGen Argument ";
             // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Location = new System.Drawing.Point(7, 7);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(93, 30);
+            this.checkBox14.TabIndex = 0;
+            this.checkBox14.Text = "Dual spinning \r\nboxes?";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.renderPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.renderPanel2, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(150, 49);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(407, 317);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
             // renderPanel1
             // 
-            this.renderPanel1.Controls.Add(this.label2);
             this.renderPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.renderPanel1.Location = new System.Drawing.Point(150, 49);
+            this.renderPanel1.Location = new System.Drawing.Point(3, 3);
             this.renderPanel1.Name = "renderPanel1";
-            this.renderPanel1.Size = new System.Drawing.Size(407, 337);
-            this.renderPanel1.TabIndex = 3;
+            this.renderPanel1.Size = new System.Drawing.Size(197, 311);
+            this.renderPanel1.TabIndex = 0;
             // 
-            // label2
+            // renderPanel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(332, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 52);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "STATISTICS\r\nI AM A LABEL\r\nBLAH BLAH\r\nBLAH BLAH";
+            this.renderPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.renderPanel2.Location = new System.Drawing.Point(206, 3);
+            this.renderPanel2.Name = "renderPanel2";
+            this.renderPanel2.Size = new System.Drawing.Size(198, 311);
+            this.renderPanel2.TabIndex = 1;
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(557, 386);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.renderPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -663,10 +688,11 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.renderPanel1.ResumeLayout(false);
-            this.renderPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -707,7 +733,6 @@
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private fivegen.RenderPanel renderPanel1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.CheckBox checkBox13;
@@ -727,7 +752,10 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private fivegen.RenderPanel renderPanel1;
+        private fivegen.RenderPanel renderPanel2;
     }
 }
 
