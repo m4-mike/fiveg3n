@@ -22,6 +22,7 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             tableLayoutPanel1.ColumnCount = 1;
+            renderPanel2.Visible = false;
             ToolTip toolTip1 = new ToolTip();
 
             // Set up the delays for the ToolTip.
@@ -219,10 +220,12 @@ namespace WindowsFormsApplication1
             if(checkBox14.Checked)
             {
                 tableLayoutPanel1.ColumnCount = 2;
+                renderPanel2.Visible = true;
             }
             else
             {
                 tableLayoutPanel1.ColumnCount = 1;
+                renderPanel2.Visible = false;
             }
         }
     }
