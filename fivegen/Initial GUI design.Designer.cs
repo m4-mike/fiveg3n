@@ -50,9 +50,9 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
@@ -81,7 +82,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.renderPanel1 = new fivegen.RenderPanel();
             this.renderPanel2 = new fivegen.RenderPanel();
@@ -127,14 +127,14 @@
             this.openToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
             this.openToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.openToolStripMenuItem1.Text = "&Open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(157, 6);
             // 
             // saveToolStripMenuItem1
             // 
@@ -143,14 +143,14 @@
             this.saveToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
             this.saveToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.saveToolStripMenuItem1.Text = "&Save As...";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -158,18 +158,18 @@
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(157, 6);
             // 
             // exitToolStripMenuItem2
             // 
             this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
-            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(163, 22);
+            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.exitToolStripMenuItem2.Text = "E&xit";
             this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
             // 
@@ -187,7 +187,7 @@
             this.undoToolStripMenuItem.Image = global::fivegen.Properties.Resources.Undo_grey;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
@@ -195,7 +195,7 @@
             this.redoToolStripMenuItem.Image = global::fivegen.Properties.Resources.Redo_grey_16x;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolsToolStripMenuItem
@@ -204,19 +204,19 @@
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem1
@@ -227,31 +227,31 @@
             this.toolStripSeparator6,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
             this.helpToolStripMenuItem1.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(118, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -270,6 +270,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 25);
             this.panel1.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button5.Image = global::fivegen.Properties.Resources.ZoomOut_16x;
+            this.button5.Location = new System.Drawing.Point(497, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(30, 25);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
@@ -290,16 +300,6 @@
             this.button7.Size = new System.Drawing.Size(30, 25);
             this.button7.TabIndex = 3;
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button5.Image = global::fivegen.Properties.Resources.ZoomOut_16x;
-            this.button5.Location = new System.Drawing.Point(497, 0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 25);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -351,7 +351,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(150, 337);
+            this.panel2.Size = new System.Drawing.Size(150, 346);
             this.panel2.TabIndex = 1;
             // 
             // tabControl1
@@ -366,7 +366,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(150, 337);
+            this.tabControl1.Size = new System.Drawing.Size(150, 346);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -377,10 +377,21 @@
             this.tabPage1.Location = new System.Drawing.Point(23, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(123, 329);
+            this.tabPage1.Size = new System.Drawing.Size(123, 338);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "History";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click_1);
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Location = new System.Drawing.Point(7, 7);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(92, 30);
+            this.checkBox14.TabIndex = 0;
+            this.checkBox14.Text = "Dual spinning \r\nboxes?";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -406,7 +417,7 @@
             this.tabPage2.Location = new System.Drawing.Point(23, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(123, 329);
+            this.tabPage2.Size = new System.Drawing.Size(123, 338);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TetGen";
             // 
@@ -587,7 +598,7 @@
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button6.Location = new System.Drawing.Point(3, 303);
+            this.button6.Location = new System.Drawing.Point(3, 312);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(117, 23);
             this.button6.TabIndex = 1;
@@ -611,7 +622,7 @@
             this.tabPage3.Location = new System.Drawing.Point(23, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(123, 329);
+            this.tabPage3.Size = new System.Drawing.Size(123, 338);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "3D Tools";
             // 
@@ -619,23 +630,12 @@
             // 
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(150, 366);
+            this.textBox4.Location = new System.Drawing.Point(150, 375);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(407, 20);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "TetGen Argument ";
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(7, 7);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(93, 30);
-            this.checkBox14.TabIndex = 0;
-            this.checkBox14.Text = "Dual spinning \r\nboxes?";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            this.checkBox14.CheckedChanged += new System.EventHandler(this.checkBox14_CheckedChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -649,7 +649,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(407, 317);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(407, 326);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // renderPanel1
@@ -657,21 +657,25 @@
             this.renderPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.renderPanel1.Location = new System.Drawing.Point(3, 3);
             this.renderPanel1.Name = "renderPanel1";
-            this.renderPanel1.Size = new System.Drawing.Size(197, 311);
+            this.renderPanel1.Size = new System.Drawing.Size(197, 320);
             this.renderPanel1.TabIndex = 0;
+            this.renderPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.renderPanel1_MouseMove);
+            this.renderPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.renderPanel1_MouseUp);
             // 
             // renderPanel2
             // 
             this.renderPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.renderPanel2.Location = new System.Drawing.Point(206, 3);
             this.renderPanel2.Name = "renderPanel2";
-            this.renderPanel2.Size = new System.Drawing.Size(198, 311);
+            this.renderPanel2.Size = new System.Drawing.Size(198, 320);
             this.renderPanel2.TabIndex = 1;
+            this.renderPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.renderPanel2_MouseMove);
+            this.renderPanel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.renderPanel2_MouseUp);
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(557, 386);
+            this.ClientSize = new System.Drawing.Size(557, 395);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.panel2);

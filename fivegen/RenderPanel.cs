@@ -53,6 +53,9 @@ namespace fivegen
 
         private bool resized;
 
+        private float  mouseX, mouseY;
+        private float mouseDX, mouseDY;
+
 
         public RenderPanel()
         {
@@ -96,6 +99,25 @@ namespace fivegen
             renderView = null;
             depthBuffer = null;
             depthView = null;
+        }
+
+        ~RenderPanel()
+        {
+            // Release all resources
+            vertexShader.Dispose();
+            pixelShader.Dispose();
+            vertices.Dispose();
+            depthBuffer.Dispose();
+            constantBuffer.Dispose();
+            depthView.Dispose();
+            layout.Dispose();
+            renderView.Dispose();
+            backBuffer.Dispose();
+            context.ClearState();
+            context.Flush();
+            device.Dispose();
+            context.Dispose();
+            swapChain.Dispose();
         }
 
         void initShaders()
@@ -168,31 +190,23 @@ namespace fivegen
                     new Vector4( 1.0f,  1.0f, -1.0f, 1.0f), new Vector4(0.0f, 1.0f, 1.0f, 1.0f),
                     new Vector4( 1.0f,  1.0f,  1.0f, 1.0f), new Vector4(0.0f, 1.0f, 1.0f, 1.0f)
                  });
-
         }
 
-        ~RenderPanel()
+        internal void mouseDrag(object sender, MouseEventArgs e)
         {
-            // Release all resources
-            vertexShader.Dispose();
-            pixelShader.Dispose();
-            vertices.Dispose();
-            depthBuffer.Dispose();
-            constantBuffer.Dispose();
-            depthView.Dispose();
-            layout.Dispose();
-            renderView.Dispose();
-            backBuffer.Dispose();
-            context.ClearState();
-            context.Flush();
-            device.Dispose();
-            context.Dispose();
-            swapChain.Dispose();
+            if(e.Button == MouseButtons.Left)
+            {
+                mouseDX += (mouseX - (float)e.X);
+                mouseDY -= (mouseY - (float)e.Y);
+                mouseX = e.X;
+                mouseY = e.Y;
+            }
         }
-
-        public void Present()
+        
+        internal void clearRotations()
         {
-            swapChain.Present(0, PresentFlags.None);
+            mouseDX = 0;
+            mouseDY = 0;
         }
 
         public void Draw()
@@ -234,16 +248,15 @@ namespace fivegen
 
             var viewProj = Matrix.Multiply(view, proj);
 
-            var time = timer.ElapsedMilliseconds / 1000.0f;
-
             context.ClearDepthStencilView(depthView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(renderView, SharpDX.Color.Black);
 
-            var worldViewProj = Matrix.RotationX(time) * Matrix.RotationY(time * 2) * Matrix.RotationZ(time * .7f) * viewProj;
+            var worldViewProj = Matrix.RotationX(-mouseDY / 200f) * Matrix.RotationY(mouseDX / 200f) * viewProj;
             worldViewProj.Transpose();
             context.UpdateSubresource(ref worldViewProj, constantBuffer);
 
             context.Draw(36, 0);
+            swapChain.Present(0, PresentFlags.None);
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -256,5 +269,7 @@ namespace fivegen
                 pe.Graphics.DrawString("DIRECT X RENDERING PANEL", new Font("Arial", 16), new SolidBrush(System.Drawing.Color.Black), new PointF(50.0f, 150.0f));
             }
         }
+
+        
     }
 }

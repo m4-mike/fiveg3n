@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using fivegen;
 
 namespace WindowsFormsApplication1
 {
@@ -51,13 +52,10 @@ namespace WindowsFormsApplication1
                 while (true)
                 {
                     renderPanel1.Draw();
-                    renderPanel1.Present();
                     renderPanel2.Draw();
-                    renderPanel2.Present();
                 }
             }));
             renderThread.Start();
-            while (!renderThread.IsAlive) ;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,11 +66,6 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             saveDialog();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -90,17 +83,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void panel3_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void tabPage1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -156,7 +139,7 @@ namespace WindowsFormsApplication1
                 case DialogResult.Yes: Application.Exit(); break;
                 case DialogResult.No: break;
             }
-            
+
         }
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -184,8 +167,7 @@ namespace WindowsFormsApplication1
             if (checkBox2.Checked)
             {
                 textBox1.Visible = true;
-            }
-            else
+            } else
             {
                 textBox1.Visible = false;
             }
@@ -196,8 +178,7 @@ namespace WindowsFormsApplication1
             if (checkBox3.Checked)
             {
                 textBox2.Visible = true;
-            }
-            else
+            } else
             {
                 textBox2.Visible = false;
             }
@@ -208,8 +189,7 @@ namespace WindowsFormsApplication1
             if (checkBox9.Checked)
             {
                 textBox3.Visible = true;
-            }
-            else
+            } else
             {
                 textBox3.Visible = false;
             }
@@ -217,16 +197,36 @@ namespace WindowsFormsApplication1
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox14.Checked)
+            if (checkBox14.Checked)
             {
                 tableLayoutPanel1.ColumnCount = 2;
                 renderPanel2.Visible = true;
-            }
-            else
+            } else
             {
                 tableLayoutPanel1.ColumnCount = 1;
                 renderPanel2.Visible = false;
             }
         }
+
+        private void renderPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            renderPanel1.mouseDrag(sender, e);
+        }
+
+        private void renderPanel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            renderPanel1.clearRotations();
+        }
+
+        private void renderPanel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            renderPanel2.mouseDrag(sender, e);
+        }
+
+        private void renderPanel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            renderPanel2.clearRotations();
+        }
+
     }
 }
