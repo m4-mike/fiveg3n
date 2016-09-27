@@ -659,8 +659,8 @@
             this.renderPanel1.Name = "renderPanel1";
             this.renderPanel1.Size = new System.Drawing.Size(197, 320);
             this.renderPanel1.TabIndex = 0;
+            this.renderPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.renderPanel1_MouseDown);
             this.renderPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.renderPanel1_MouseMove);
-            this.renderPanel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.renderPanel1_MouseUp);
             // 
             // renderPanel2
             // 
@@ -669,8 +669,8 @@
             this.renderPanel2.Name = "renderPanel2";
             this.renderPanel2.Size = new System.Drawing.Size(198, 320);
             this.renderPanel2.TabIndex = 1;
+            this.renderPanel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.renderPanel2_MouseDown);
             this.renderPanel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.renderPanel2_MouseMove);
-            this.renderPanel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.renderPanel2_MouseUp);
             // 
             // Form1
             // 

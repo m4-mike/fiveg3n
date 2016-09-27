@@ -53,7 +53,7 @@ namespace fivegen
 
         private bool resized;
 
-        private float  mouseX, mouseY;
+        private float mouseX, mouseY;
         private float mouseDX, mouseDY;
 
 
@@ -194,7 +194,7 @@ namespace fivegen
 
         internal void mouseDrag(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 mouseDX += (mouseX - (float)e.X);
                 mouseDY -= (mouseY - (float)e.Y);
@@ -202,11 +202,11 @@ namespace fivegen
                 mouseY = e.Y;
             }
         }
-        
-        internal void clearRotations()
+
+        internal void setMouseStart(MouseEventArgs e)
         {
-            mouseDX = 0;
-            mouseDY = 0;
+            mouseX = e.X;
+            mouseY = e.Y;
         }
 
         public void Draw()
@@ -251,7 +251,7 @@ namespace fivegen
             context.ClearDepthStencilView(depthView, DepthStencilClearFlags.Depth, 1.0f, 0);
             context.ClearRenderTargetView(renderView, SharpDX.Color.Black);
 
-            var worldViewProj = Matrix.RotationX(-mouseDY / 200f) * Matrix.RotationY(mouseDX / 200f) * viewProj;
+            var worldViewProj = Matrix.RotationX(mouseDY / 100f) * Matrix.RotationY(mouseDX / 100f) * viewProj;
             worldViewProj.Transpose();
             context.UpdateSubresource(ref worldViewProj, constantBuffer);
 
@@ -270,6 +270,7 @@ namespace fivegen
             }
         }
 
-        
+
+
     }
 }

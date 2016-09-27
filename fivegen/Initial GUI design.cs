@@ -104,19 +104,16 @@ namespace WindowsFormsApplication1
 
             openFileDialog1.Multiselect = false;
             openFileDialog1.ShowDialog();
-
         }
 
         private void saveDialog()
         {
-
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.ShowDialog();
-
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,12 +131,7 @@ namespace WindowsFormsApplication1
         {
             DialogResult dr = MessageBox.Show("Are you sure you want to exit?",
                       "Exit?", MessageBoxButtons.YesNo);
-            switch (dr)
-            {
-                case DialogResult.Yes: Application.Exit(); break;
-                case DialogResult.No: break;
-            }
-
+            if (dr == DialogResult.Yes) Application.Exit();
         }
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -164,35 +156,17 @@ namespace WindowsFormsApplication1
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.Checked)
-            {
-                textBox1.Visible = true;
-            } else
-            {
-                textBox1.Visible = false;
-            }
+            textBox1.Visible = checkBox2.Checked;
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked)
-            {
-                textBox2.Visible = true;
-            } else
-            {
-                textBox2.Visible = false;
-            }
+            textBox2.Visible = checkBox3.Checked;
         }
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox9.Checked)
-            {
-                textBox3.Visible = true;
-            } else
-            {
-                textBox3.Visible = false;
-            }
+            textBox3.Visible = checkBox9.Checked;
         }
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
@@ -213,19 +187,19 @@ namespace WindowsFormsApplication1
             renderPanel1.mouseDrag(sender, e);
         }
 
-        private void renderPanel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            renderPanel1.clearRotations();
-        }
-
         private void renderPanel2_MouseMove(object sender, MouseEventArgs e)
         {
             renderPanel2.mouseDrag(sender, e);
         }
 
-        private void renderPanel2_MouseUp(object sender, MouseEventArgs e)
+        private void renderPanel2_MouseDown(object sender, MouseEventArgs e)
         {
-            renderPanel2.clearRotations();
+            renderPanel2.setMouseStart(e);
+        }
+
+        private void renderPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            renderPanel1.setMouseStart(e);
         }
 
     }
