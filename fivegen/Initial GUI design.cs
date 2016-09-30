@@ -202,5 +202,70 @@ namespace WindowsFormsApplication1
             renderPanel1.setMouseStart(e);
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //create argument string  
+            textBox4.Text = ARgString();
+            //send arguemnt and file to tetgen
+        }
+
+        private String ARgString()
+        {
+            //Takes the results from the checkboxes and creates a argument string to be sent to the tetgen .exe
+            String ArgumentStr = "";
+            if (checkBox1.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-p";
+            }
+            if (checkBox2.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-q" + textBox1.Text;
+            }
+            if (checkBox3.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-a" + textBox2.Text;
+            }
+            if (checkBox4.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-A";
+            }
+            if (checkBox5.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-r";
+            }
+            if (checkBox6.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-Y";
+            }
+            if (checkBox7.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-i";
+            }
+            if (checkBox8.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-M";
+            }
+            if (checkBox9.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-T" + textBox3.Text;
+            }
+            if (checkBox10.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-d";
+            }
+            if (checkBox11.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-z";
+            }
+            if (checkBox12.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-j";
+            }
+            if (checkBox13.Checked)
+            {
+                ArgumentStr = ArgumentStr + "-o2";
+            }
+            return ArgumentStr;
+        }
     }
 }
