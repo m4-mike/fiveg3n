@@ -66,16 +66,16 @@
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CoplanarTestToleranceInput = new System.Windows.Forms.TextBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.MaxVolumeInput = new System.Windows.Forms.TextBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MinEdgeRadiusRatioInput = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -127,14 +127,14 @@
             this.openToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
             this.openToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.openToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.openToolStripMenuItem1.Text = "&Open";
             this.openToolStripMenuItem1.Click += new System.EventHandler(this.openToolStripMenuItem1_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(157, 6);
             // 
             // saveToolStripMenuItem1
             // 
@@ -143,14 +143,14 @@
             this.saveToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
             this.saveToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.saveToolStripMenuItem1.Text = "&Save As...";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -158,18 +158,18 @@
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(157, 6);
             // 
             // exitToolStripMenuItem2
             // 
             this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
-            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(163, 22);
+            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(160, 22);
             this.exitToolStripMenuItem2.Text = "E&xit";
             this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
             // 
@@ -187,7 +187,7 @@
             this.undoToolStripMenuItem.Image = global::fivegen.Properties.Resources.Undo_grey;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
@@ -195,7 +195,7 @@
             this.redoToolStripMenuItem.Image = global::fivegen.Properties.Resources.Redo_grey_16x;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolsToolStripMenuItem
@@ -204,19 +204,19 @@
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem1
@@ -227,31 +227,30 @@
             this.toolStripSeparator6,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
             this.helpToolStripMenuItem1.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
-            this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -380,14 +379,13 @@
             this.tabPage1.Size = new System.Drawing.Size(123, 338);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "History";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click_1);
             // 
             // checkBox14
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Location = new System.Drawing.Point(7, 7);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(93, 30);
+            this.checkBox14.Size = new System.Drawing.Size(92, 30);
             this.checkBox14.TabIndex = 0;
             this.checkBox14.Text = "Dual spinning \r\nboxes?";
             this.checkBox14.UseVisualStyleBackColor = true;
@@ -400,16 +398,16 @@
             this.tabPage2.Controls.Add(this.checkBox12);
             this.tabPage2.Controls.Add(this.checkBox11);
             this.tabPage2.Controls.Add(this.checkBox10);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.CoplanarTestToleranceInput);
             this.tabPage2.Controls.Add(this.checkBox9);
             this.tabPage2.Controls.Add(this.checkBox8);
             this.tabPage2.Controls.Add(this.checkBox7);
             this.tabPage2.Controls.Add(this.checkBox6);
             this.tabPage2.Controls.Add(this.checkBox5);
             this.tabPage2.Controls.Add(this.checkBox4);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.MaxVolumeInput);
             this.tabPage2.Controls.Add(this.checkBox3);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.MinEdgeRadiusRatioInput);
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.button6);
@@ -465,14 +463,14 @@
             this.checkBox10.Text = "- d";
             this.checkBox10.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // CoplanarTestToleranceInput
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox3.Location = new System.Drawing.Point(3, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(117, 20);
-            this.textBox3.TabIndex = 17;
-            this.textBox3.Visible = false;
+            this.CoplanarTestToleranceInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CoplanarTestToleranceInput.Location = new System.Drawing.Point(3, 213);
+            this.CoplanarTestToleranceInput.Name = "CoplanarTestToleranceInput";
+            this.CoplanarTestToleranceInput.Size = new System.Drawing.Size(117, 20);
+            this.CoplanarTestToleranceInput.TabIndex = 17;
+            this.CoplanarTestToleranceInput.Visible = false;
             // 
             // checkBox9
             // 
@@ -541,14 +539,14 @@
             this.checkBox4.Text = "- A";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // MaxVolumeInput
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox2.Location = new System.Drawing.Point(3, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(117, 20);
-            this.textBox2.TabIndex = 16;
-            this.textBox2.Visible = false;
+            this.MaxVolumeInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MaxVolumeInput.Location = new System.Drawing.Point(3, 91);
+            this.MaxVolumeInput.Name = "MaxVolumeInput";
+            this.MaxVolumeInput.Size = new System.Drawing.Size(117, 20);
+            this.MaxVolumeInput.TabIndex = 16;
+            this.MaxVolumeInput.Visible = false;
             // 
             // checkBox3
             // 
@@ -562,14 +560,14 @@
             this.checkBox3.UseVisualStyleBackColor = true;
             this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
-            // textBox1
+            // MinEdgeRadiusRatioInput
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(3, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(117, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Visible = false;
+            this.MinEdgeRadiusRatioInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MinEdgeRadiusRatioInput.Location = new System.Drawing.Point(3, 54);
+            this.MinEdgeRadiusRatioInput.Name = "MinEdgeRadiusRatioInput";
+            this.MinEdgeRadiusRatioInput.Size = new System.Drawing.Size(117, 20);
+            this.MinEdgeRadiusRatioInput.TabIndex = 4;
+            this.MinEdgeRadiusRatioInput.Visible = false;
             // 
             // checkBox2
             // 
@@ -593,7 +591,6 @@
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "- p";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // button6
             // 
@@ -753,9 +750,9 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox MinEdgeRadiusRatioInput;
+        private System.Windows.Forms.TextBox CoplanarTestToleranceInput;
+        private System.Windows.Forms.TextBox MaxVolumeInput;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

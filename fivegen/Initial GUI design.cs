@@ -14,7 +14,14 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        Thread renderThread;
+        private const int MinEdgeRadiusIndex = 1;
+        private const int MaxVolumeIndex = 2;
+        private const int CoplanarTestToleranceIndex = 8;
+        private const int NumArguments = 13;
+
+        private Thread RenderThread;
+        private CheckBox[] ArgumentCheckboxes = new CheckBox[NumArguments];
+
         public Form1()
         {
             InitializeComponent();
@@ -34,28 +41,42 @@ namespace WindowsFormsApplication1
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
+            // Add checkboxes to the argument array for easier traversal later
             toolTip1.SetToolTip(this.checkBox1, "Tetrahedralizes a picecwise linear complex.");
+            ArgumentCheckboxes[0] = this.checkBox1;
             toolTip1.SetToolTip(this.checkBox2, "Quality mesh generation. A minimum radius-edge ratio may be specifyed.");
+            ArgumentCheckboxes[1] = this.checkBox2;
             toolTip1.SetToolTip(this.checkBox3, "Applies a maximum tetrahedron volume constraint.");
+            ArgumentCheckboxes[2] = this.checkBox3;
             toolTip1.SetToolTip(this.checkBox4, "Assigns attributes to identify tetrahedra in certain regions.");
+            ArgumentCheckboxes[3] = this.checkBox4;
             toolTip1.SetToolTip(this.checkBox5, "Reconstructs/Refines a previously generated mesh.");
+            ArgumentCheckboxes[4] = this.checkBox5;
             toolTip1.SetToolTip(this.checkBox6, "Suppresses boundary facets/segments splitting.");
+            ArgumentCheckboxes[5] = this.checkBox6;
             toolTip1.SetToolTip(this.checkBox7, "Inserts a list of additional points into mesh.");
+            ArgumentCheckboxes[6] = this.checkBox7;
             toolTip1.SetToolTip(this.checkBox8, "Does not merge coplanar facets.");
+            ArgumentCheckboxes[7] = this.checkBox8;
             toolTip1.SetToolTip(this.checkBox9, "Set a tolerance for coplanar test.");
+            ArgumentCheckboxes[8] = this.checkBox9;
             toolTip1.SetToolTip(this.checkBox10, "Detect intersections of PLC facets.");
+            ArgumentCheckboxes[9] = this.checkBox10;
             toolTip1.SetToolTip(this.checkBox11, "Numbers all output items starting from zero.");
+            ArgumentCheckboxes[10] = this.checkBox11;
             toolTip1.SetToolTip(this.checkBox12, "Jettison unused vertices from output .node file.");
+            ArgumentCheckboxes[11] = this.checkBox12;
             toolTip1.SetToolTip(this.checkBox13, "Generates second-order subparametric elements.");
+            ArgumentCheckboxes[12] = this.checkBox13;
 
-            renderThread = new Thread(new ThreadStart(() => {
+            RenderThread = new Thread(new ThreadStart(() => {
                 while (true)
                 {
                     renderPanel1.Draw();
                     renderPanel2.Draw();
                 }
             }));
-            renderThread.Start();
+            RenderThread.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -66,26 +87,6 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             saveDialog();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void openToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -124,7 +125,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            renderThread.Abort();
+            RenderThread.Abort();
         }
 
         private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -139,34 +140,19 @@ namespace WindowsFormsApplication1
             saveDialog();
         }
 
-        private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            textBox1.Visible = checkBox2.Checked;
+            MinEdgeRadiusRatioInput.Visible = ArgumentCheckboxes[MinEdgeRadiusIndex].Checked;
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            textBox2.Visible = checkBox3.Checked;
+            MaxVolumeInput.Visible = ArgumentCheckboxes[MaxVolumeIndex].Checked;
         }
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            textBox3.Visible = checkBox9.Checked;
+            CoplanarTestToleranceInput.Visible = ArgumentCheckboxes[CoplanarTestToleranceIndex].Checked;
         }
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
@@ -205,67 +191,34 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             //create argument string  
-            textBox4.Text = ARgString();
+            textBox4.Text = ArgString();
             //send arguemnt and file to tetgen
         }
 
-        private String ARgString()
+        private String ArgString()
         {
             //Takes the results from the checkboxes and creates a argument string to be sent to the tetgen .exe
-            String ArgumentStr = "";
-            if (checkBox1.Checked)
+            var argumentStr = new StringBuilder();
+            for (var i = 0; i < ArgumentCheckboxes.Length; i++)
             {
-                ArgumentStr = ArgumentStr + "-p";
+                if (ArgumentCheckboxes[i].Checked)
+                {
+                    argumentStr.Append(ArgumentCheckboxes[i].Text + " ");
+                    if (i == MinEdgeRadiusIndex)
+                    {
+                        argumentStr.Append(MinEdgeRadiusRatioInput.Text + " ");
+                    }
+                    if (i == MaxVolumeIndex)
+                    {
+                        argumentStr.Append(MaxVolumeInput.Text + " ");
+                    }
+                    if (i == CoplanarTestToleranceIndex)
+                    {
+                        argumentStr.Append(CoplanarTestToleranceInput.Text + " ");
+                    }
+                }
             }
-            if (checkBox2.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-q" + textBox1.Text;
-            }
-            if (checkBox3.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-a" + textBox2.Text;
-            }
-            if (checkBox4.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-A";
-            }
-            if (checkBox5.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-r";
-            }
-            if (checkBox6.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-Y";
-            }
-            if (checkBox7.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-i";
-            }
-            if (checkBox8.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-M";
-            }
-            if (checkBox9.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-T" + textBox3.Text;
-            }
-            if (checkBox10.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-d";
-            }
-            if (checkBox11.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-z";
-            }
-            if (checkBox12.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-j";
-            }
-            if (checkBox13.Checked)
-            {
-                ArgumentStr = ArgumentStr + "-o2";
-            }
-            return ArgumentStr;
+            return argumentStr.ToString();
         }
     }
 }
