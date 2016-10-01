@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace trial_2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        Queue<Button> hist = new Queue<Button>();
+        int count = 0;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button BtnNew = new Button();
+            BtnNew.Height = 80;
+            BtnNew.Width = 80;
+            BtnNew.Text = count.ToString();
+            BtnNew.Location = new Point(0, 0);
+            for(int i = 0; i < hist.Count; i++)
+            {
+                Button toMove = hist.ElementAt(i);
+                toMove.Location = new Point(toMove.Location.X + 0, toMove.Location.Y + 80);
+            }
+            hist.Enqueue(BtnNew);
+            if (hist.Count() > 4)
+            {
+                hist.Dequeue();
+                this.Controls.RemoveAt(1);
+            }
+            this.Controls.Add(BtnNew);
+            count++;
+        }
+    }
+}
